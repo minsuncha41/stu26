@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>min</title>
+    <link rel="stylesheet" href="css/0415menucss.css">
+
+    <style>
+        @font-face {
+            font-family: 'namsan';
+            src: url('ttf/SeoulNamsanM.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'namsan', sans-serif;
+            font-weight: normal;
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrap {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 200px;
+        }
+
+        .wrap.no {
+            display: none;
+        }
+
+        .inwrap {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #8398b5;
+            display: none;
+            flex-direction: column;
+        }
+
+        .inwrap.atv {
+            display: flex;
+        }
+
+
+        .top {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .top>h2 {
+            margin-bottom: 10px;
+        }
+
+
+        .main {
+            font-size: 20px;
+            box-sizing: border-box;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 10px 20px;
+        }
+
+        .labox {
+            box-sizing: border-box;
+            width: calc(100%/2 - 10px);
+            display: flex;
+            gap: 5px 0;
+            flex-direction: column;
+        }
+
+        .labox>label {
+            font-weight: bold;
+            padding-left: 5px;
+        }
+
+        .intext {
+            width: 100%;
+        }
+
+        .labox>input,
+        .labox>textarea,
+        .labox>select {
+            height: 42px;
+            padding: 0px 10px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        .labox>textarea,
+        .labox>select,
+        .labox>button,
+        .labox>input[type="date"] {
+            cursor: pointer;
+        }
+
+        .labox>select {
+            height: 45px;
+        }
+
+        .labox>textarea {
+
+            height: 100px;
+            padding: 10px;
+        }
+        #addbtn{
+            font-weight: bold;
+            color: white;
+        }
+        #addbtn,
+        #upaddbtn,
+        #noaddbtn {
+            cursor: pointer;
+            width: 100%;
+            height: 45px;
+            background-color: #2f6793;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        #addbtn:hover,
+        #upaddbtn:hover {
+            background-color: #20559A;
+        }
+
+        .searchbox {
+            margin-top: 30px;
+        }
+
+        #inputsc {
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #20559A;
+            box-sizing: border-box;
+            width: 100%;
+            height: 45px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #list {
+            width: 100%;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 25px 20px;
+        }
+
+        #list>li {
+            font-size: 20px;
+            position: relative;
+            padding: 30px 150px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            width: calc(100%);
+            border: 1px solid #20559A;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #listtop {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 0 15%;
+            margin-bottom: 10px;
+        }
+
+        #list>li>p>b {
+            font-size: 20px;
+        }
+
+        #list>li> {
+            width: 100%;
+        }
+
+
+        #inintext {
+            line-height: 35px;
+        }
+
+
+
+
+
+        .btns {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            gap: 10px;
+        }
+
+        .btns>button {
+            padding: 0 10px;
+            height: 30px;
+            font-weight: bold;
+            color: white;
+            border: none;
+        }
+
+        .btns>#upbtn,
+        .btns>#upbtnlogin {
+            cursor: pointer;
+            background-color: #20559a88;
+        }
+
+        .btns>#delbtn,
+        .btns>#delbtnlogin {
+            cursor: pointer;
+            background-color: rgba(255, 0, 0, 0.486);
+        }
+
+        .btns>#upbtnlogin:hover,
+        .btns>#upbtn:hover {
+            background-color: #20559A;
+        }
+
+        .btns>#delbtn:hover,
+        .btns>#delbtnlogin:hover {
+            background-color: red;
+        }
+
+
+
+
+
+        .subimg {
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            width: 100%;
+            height: calc(70*4px + 40px);
+            margin-top: 80px;
+            background-position: center;
+            background-size: cover;
+            background-image: url(imgs/subVisual-1.jpg);
+            color: white;
+        }
+
+        .subimg.no {
+            display: none;
+        }
+
+
+        .menu {
+            display: block;
+        }
+
+
+
+        .upbtn,
+        .delbtn {
+            display: block;
+        }
+
+        .upbtn.no,
+        .delbtn.no {
+            display: none;
+        }
+
+
+
+        .upbtnlogin,
+        .delbtnlogin {
+            display: none;
+        }
+
+        .upbtnlogin.atv,
+        .delbtnlogin.atv {
+            display: block;
+        }
+
+
+
+
+
+
+        .updatewrap {
+            /*display: flex;*/
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .updatewrap.atv {
+            display: flex;
+
+        }
+
+        .updatebtns {
+            width: 100%;
+            gap: 20px;
+            display: flex;
+        }
+
+        .updatebtns>#noaddbtn {
+            background-color: rgb(161, 168, 255);
+        }
+
+        .updatebtns>#noaddbtn:hover {
+            background-color: rgb(107, 117, 255);
+        }
+
+
+
+
+        
+
+    .inquiry {
+
+        padding: 50px;
+        flex: 1;
+    }
+
+    .inquiry span {
+        font-size: 25px;
+        color: #20559A;
+    }
+
+    .inquiry h1 {
+        font-size: 45px;
+        color: #20559A;
+        margin: 20px 0;
+    }
+
+
+    .time {
+        flex: 1;
+    }
+
+    .time h3 {
+        font-size: 25px;
+        color: #20559A;
+        padding-top: 20px;
+    }
+
+    .time p {
+        font-size: 22px;
+        color: #454545;
+        margin-top: 10px;
+    }
+
+
+
+    .map {
+        background-color: #eff5fd;
+        color: #454545;
+        padding: 20px;
+        flex: 1.2;
+    }
+
+    .map p {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+
+    .map h3 {
+        font-size: 25px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    #inf {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 80px 10%;
+        gap: 50px;
+        background-color: #eff5fd;
+
+    }
+
+
+    .footer {
+        width: 100%;
+        height: 200px;
+        background-color: #454545;
+        color: #D9D9D9;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .footer p {
+        margin-top: 20px;
+    }
+
+    .seoulcg{
+        color: #2B6299;
+    }
+
+
+
+
+    #footwrap{
+        display: block;
+    }
+    #footwrap.no{
+        display: none;
+    }
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="menuwrap">
+        <script src="js/0415menujs.js"></script>
+        <script>            
+            window.addEventListener("load", function () {
+                let navList = document.querySelector(".nav>ul");
+                navList.addEventListener("mouseover", function () { navList.querySelectorAll(".submenu").forEach(function (sb) { sb.style.height = "calc(70*4px + 20px)"; }); document.querySelector(".nav>ul").classList.add("on"); });
+                navList.addEventListener("mouseout", function () { navList.querySelectorAll(".submenu").forEach(function (sb) { sb.style.height = "0px"; }); document.querySelector(".nav>ul").classList.remove("on"); });
+            });        
+        </script>
+        <div class="menu">
+            <nav class="nav">
+                <ul>
+                    <li> <a href="index.html">
+                            <div class="logo"><span>서울더가까이</span>치과</div>
+                        </a> </li>
+                    <li> <a href="introduce.html">병원소개</a>
+                        <ul class="submenu">
+                            <li><a href="introduce.html">인삿말 및 병원 소개</a></li>
+                            <li><a href="map.html">오시는길 및 진료시간</a></li>
+                            <li><a href="doctor.html">의사 선생님 소개</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="03crgj.html">교정 클리닉</a>
+                        <ul class="submenu">
+                            <li><a href="03crgj.html">교정 소개</a></li>
+
+                        </ul>
+                    </li>
+                    <li> <a href="implant.html">임플란트 클리닉</a>
+                        <ul class="submenu">
+                            <li><a href="implant.html">임플란트 소개</a></li>
+                            <li><a href="implantjls.html">임플란트 종류</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="03reservation.html">커뮤니티</a>
+                        <ul class="submenu">
+                            <li><a href="03reservation.html">상담/예약</a></li>
+                            <li><a href="03notice.html">공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="logintext" id="logintext"><p>환영합니다</p></div>
+                        <div id="login" onclick="longBtn()"><p>로그인</p></div> 
+                        <button id="logout" onclick="logoutBtn()">로그아웃</button>
+                        <button id="out" onclick="outBtn()">닫기</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="loginbox" id="loginbox">
+            <div id="loginvv" class="loginwrap">
+                <div class="loginlogo"><span>서울더가까이</span>치과</div>
+                <div class="loginin">
+                    <h2>로그인하기</h2>
+                    <label for="inputid">아이디</label> <input type="text" id="inputid" placeholder="아이디 입력해주세요.">
+                    <label for="inputpw">비밀번호</label> <input type="password" id="inputpw" placeholder="아이디 입력해주세요.">
+                    <button id="loginbtn" onclick="loginBtn()">관리자 로그인하기</button>
+                    <div class="logininbox"> <span id="haonebtn" onclick="switchview('createvv')">회원가입</span> <span
+                            id="haonefindebtn" onclick="switchview('findevv')">비밀번호 찾기</span> </div>
+                </div>
+            </div>
+            <div id="createvv" class="loginwrap ">
+                <div class="loginlogo"><span>서울더가까이</span>치과</div>
+                <div class="loginin">
+                    <h2>관리자 추가하기</h2>
+                    <label for="inputidnew">신규 아이디</label> <input type="text" id="inputidnew" placeholder="아이디 입력해주세요.">
+                    <label for="inputpwnew">신규 비밀번호</label> <input type="password" id="inputpwnew"
+                        placeholder="아이디 입력해주세요.">
+                    <label for="inputpwck">비밀번호 재확인</label> <input type="password" id="inputpwck"
+                        placeholder="아이디 입력해주세요.">
+                    <button id="cerbtn" onclick="cerBtn()">관리자 추가하기</button>
+                    <div class="logininbox"> <span id="haonebtn" onclick="switchview('loginvv')">로그인</span> <span
+                            id="haonefindebtn" onclick="switchview('findevv')">비밀번호 찾기</span> </div>
+                </div>
+            </div>
+            <div id="findevv" class="loginwrap ">
+                <div class="loginlogo"><span>서울더가까이</span>치과</div>
+                <div class="loginin">
+                    <h2>비밀번호 찾기</h2>
+                    <label for="inputidfinde">아이디</label> <input type="text" id="inputidfinde" placeholder="아이디 입력해주세요.">
+                    <h3>관리자님의 비밀번호는</h3>
+                    <p id="fdpw"></p>
+                    <button id="findebtn" onclick="findeBtn()">관리자 비밀번호 찾기</button>
+                    <div class="logininbox"> <span id="haonebtn" onclick="switchview('loginvv')">로그인</span> <span
+                            id="haonefindebtn"onclick="switchview('createvv')">회원가입</span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="subimg" id="subimg">
+        <h1>공지사항</h1>
+    </div>
+
+
+    <div class="wrap" id="wrap">
+        <div class="inwrap" id="inwraplogin">
+            <div class="top">
+                <h2>공지사항</h2>
+                <p>서울더가까이치과의 중요한 공지사항입니다! <br>잘 확인해 주시기 바랍니다!</p>
+            </div>
+            <div class="main">
+                <div class="labox inname">
+                    <label for="inname">작성자 성함</label>
+                    <input type="text" id="inname" placeholder="예: 홍길동">
+                </div>
+
+
+                <div class="labox injl">
+                    <label for="injl">공지 종류</label>
+                    <select name="injl" id="injl">
+                        <option value="">공지 종류 선택</option>
+                        <option value="주차">주차</option>
+                        <option value="치료">치료</option>
+                        <option value="휴가">휴가</option>
+                        <option value="공사">공사</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+
+                <div class="labox intext">
+                    <label for="intext">상세 내용</label>
+                    <textarea name="lcp" id="intext" placeholder="7월 여름 방학 할인 이벤트 이 기간동한 예약 신청시 30% 할인...."></textarea>
+                </div>
+
+                <button id="addbtn" onclick="addBtn()">🍕 공지 등록하기 🍕</button>
+            </div>
+        </div>
+
+        <div class="searchbox">
+            <input type="text" id="inputsc" placeholder="🔍 제목, 내용, 날자, 종류 검색 🔎" oninput="renders()">
+        </div>
+
+        <ul id="list">
+            <li>
+                <p><b>NO:</b> 1</p>
+                <p><b>성함:</b> 차민성</p>
+                <p><b>작성일:</b> 2026-04-16</p>
+                <p><b>예약일:</b> 2026-04-20</p>
+                <p><b>치료 종류:</b> 치통😫</p>
+                <p><b>상세 내용:</b>123412312121231231233123123121232123123 생각보다 치과 견적이 높게나와 문의하고자 합니다.비용도 비용이지만, 최대한 보존치료
+                    방향으로 하고싶은데 과하게 치료를 받는건지가 궁금합니다또한 궁금한게 지금 인레이 방식으로 치료 받게 될 경우 추후 10년 후 다시 치료가 필요할때 더 치아를 많이 손대야할까봐
+                    무엇보다 걱정됩니다…</p>
+                <p><b>전화번호:</b> 010-1234-****</p>
+                <div class="btns">
+                    <button id="upbtn" onclick="upBtn()">수정</button>
+                    <button id="delbtn" onclick="delBtn()">삭제</button>
+                </div>
+            </li>
+            <li>
+                <p><b>NO:</b> 1</p>
+                <p><b>성함:</b> 차민성</p>
+                <p><b>작성일:</b> 2026-04-16</p>
+                <p><b>예약일:</b> 2026-04-20</p>
+                <p><b>치료 종류:</b> 치통😫</p>
+                <p><b>상세 내용:</b>123412312121231231233123123121232123123 생각보다 치과 견적이 높게나와 문의하고자 합니다.비용도 비용이지만, 최대한 보존치료
+                    방향으로 하고싶은데 과하게 치료를 받는건지가 궁금합니다또한 궁금한게 지금 인레이 방식으로 치료 받게 될 경우 추후 10년 후 다시 치료가 필요할때 더 치아를 많이 손대야할까봐
+                    무엇보다 걱정됩니다…</p>
+                <p><b>전화번호:</b> 010-1234-****</p>
+                <div class="btns">
+                    <button id="upbtn" onclick="upBtn()">수정</button>
+                    <button id="delbtn" onclick="delBtn()">삭제</button>
+                </div>
+            </li>
+            <li>
+                <p><b>NO:</b> 1</p>
+                <p><b>성함:</b> 차민성</p>
+                <p><b>작성일:</b> 2026-04-16</p>
+                <p><b>예약일:</b> 2026-04-20</p>
+                <p><b>치료 종류:</b> 치통😫</p>
+                <p><b>상세 내용:</b>123412312121231231233123123121232123123 생각보다 치과 견적이 높게나와 문의하고자 합니다.비용도 비용이지만, 최대한 보존치료
+                    방향으로 하고싶은데 과하게 치료를 받는건지가 궁금합니다또한 궁금한게 지금 인레이 방식으로 치료 받게 될 경우 추후 10년 후 다시 치료가 필요할때 더 치아를 많이 손대야할까봐
+                    무엇보다 걱정됩니다…</p>
+                <p><b>전화번호:</b> 010-1234-****</p>
+                <div class="btns">
+                    <button id="upbtn" onclick="upBtn()">수정</button>
+                    <button id="delbtn" onclick="delBtn()">삭제</button>
+                </div>
+            </li>
+            <li>
+                <p><b>NO:</b> 1</p>
+                <p><b>성함:</b> 차민성</p>
+                <p><b>작성일:</b> 2026-04-16</p>
+                <p><b>예약일:</b> 2026-04-20</p>
+                <p><b>치료 종류:</b> 치통😫</p>
+                <p><b>상세 내용:</b>123412312121231231233123123121232123123 생각보다 치과 견적이 높게나와 문의하고자 합니다.비용도 비용이지만, 최대한 보존치료
+                    방향으로 하고싶은데 과하게 치료를 받는건지가 궁금합니다또한 궁금한게 지금 인레이 방식으로 치료 받게 될 경우 추후 10년 후 다시 치료가 필요할때 더 치아를 많이 손대야할까봐
+                    무엇보다 걱정됩니다…</p>
+                <p><b>전화번호:</b> 010-1234-****</p>
+                <div class="btns">
+                    <button id="upbtn" onclick="upBtn()">수정</button>
+                    <button id="delbtn" onclick="delBtn()">삭제</button>
+                </div>
+            </li>
+            <li>
+                <p><b>NO:</b> 1</p>
+                <p><b>성함:</b> 차민성</p>
+                <p><b>작성일:</b> 2026-04-16</p>
+                <p><b>예약일:</b> 2026-04-20</p>
+                <p><b>치료 종류:</b> 치통😫</p>
+                <p><b>상세 내용:</b>123412312121231231233123123121232123123 생각보다 치과 견적이 높게나와 문의하고자 합니다.비용도 비용이지만, 최대한 보존치료
+                    방향으로 하고싶은데 과하게 치료를 받는건지가 궁금합니다또한 궁금한게 지금 인레이 방식으로 치료 받게 될 경우 추후 10년 후 다시 치료가 필요할때 더 치아를 많이 손대야할까봐
+                    무엇보다 걱정됩니다…</p>
+                <p><b>전화번호:</b> 010-1234-****</p>
+                <div class="btns">
+                    <button id="upbtn" onclick="upBtn()">수정</button>
+                    <button id="delbtn" onclick="delBtn()">삭제</button>
+                </div>
+            </li>
+            <li>
+                <p><b>NO:</b> 1</p>
+                <p><b>성함:</b> 차민성</p>
+                <p><b>작성일:</b> 2026-04-16</p>
+                <p><b>예약일:</b> 2026-04-20</p>
+                <p><b>치료 종류:</b> 치통😫</p>
+                <p><b>상세 내용:</b>123412312121231231233123123121232123123 생각보다 치과 견적이 높게나와 문의하고자 합니다.비용도 비용이지만, 최대한 보존치료
+                    방향으로 하고싶은데 과하게 치료를 받는건지가 궁금합니다또한 궁금한게 지금 인레이 방식으로 치료 받게 될 경우 추후 10년 후 다시 치료가 필요할때 더 치아를 많이 손대야할까봐
+                    무엇보다 걱정됩니다…</p>
+                <p><b>전화번호:</b> 010-1234-****</p>
+                <div class="btns">
+                    <button id="upbtn" onclick="upBtn()">수정</button>
+                    <button id="delbtn" onclick="delBtn()">삭제</button>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+    <!-- 
+ 안녕하세요 서울 더가까이치과 입니다. 저희 홈페이지 우측에는 빠른 전화 상담과 
+ 카카오톡 상담 기능이 있습니다. 전화 번호를 남겨주시면 전화를 걸거나 카카오톡을 
+ 통해 연락을 드리기 위해 만든 기능입니다. 현재 저희 쪽에서 환자분께 전화를 걸어서 
+ 직접 대화는 가능하지만, 카카오톡을 이용해 먼저 말을 거는 방법이 어려운 점이 있습니다. 
+ 따라서 카카오톡을 통한 상담을 원하시는 경우 불편하시더라도 옐로우 아이디 "@더가까이치과" 
+ 를 친구추가 해주시면 감사하겠습니다. 앞으로 더 발전하는 서울더가까이치과가 되겠습니다. 
+ -->
+    <div class="updatewrap" id="updatewrap">
+        <div class="updatebox">
+            <div class="main">
+                <div class="labox inname">
+                    <label for="upinname">작성자 성함</label>
+                    <input type="text" id="upinname" placeholder="예: 홍길동">
+                </div>
+
+
+                <div class="labox injl">
+                    <label for="upinjl">공지 종류</label>
+                    <select name="upinjl" id="upinjl">
+                        <option value="">공지 종류 선택</option>
+                        <option value="주차">주차</option>
+                        <option value="치료">치료</option>
+                        <option value="휴가">휴가</option>
+                        <option value="공사">공사</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+
+                <div class="labox intext">
+                    <label for="upintext">상세 내용</label>
+                    <textarea name="upintext" id="upintext"
+                        placeholder="7월 여름 방학 할인 이벤트 이 기간동한 예약 신청시 30% 할인...."></textarea>
+                </div>
+
+                <div class="updatebtns">
+                    <button id="upaddbtn" onclick="upaddBtn()">🍕 공지 수정 등록하기 🍕</button>
+                    <button id="noaddbtn" onclick="noaddBtn()">❌ 공지 수정 등록안하기 ❌</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="footwrap" id="footwrap">
+    <div class="content" id="inf">
+        <div class="inquiry">
+            <h3><span>상담문의</span></h3>
+            <h1>031-1234-5678</h1>
+
+            <div class="time">
+                <h3>진료시간</h3>
+                <p>평일 <b>AM10:00 - PM07:00</b></p>
+                <p>토요일 <b>AM 09:00 - PM 01:00</b></p>
+                <p>점심시간 <b>PM 01:00 - PM 02:00</b></p>
+            </div>
+        </div>
+
+
+        <div class="map">
+            <h3>오시는 길</h3>
+            <p>경기도 부천시 경인옛로 3(소사메디파크) 303,304호</p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.098474395677!2d126.7931033!3d37.48200250000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b62da0c8f5ad3%3A0xdee531e1cd315eb2!2z7ISc7Jq4642U6rCA6rmM7J207LmY6rO87J2Y7JuQ!5e0!3m2!1sko!2skr!4v1776255643729!5m2!1sko!2skr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>상호:서울더가까이치과의원 대표자:김득한 사업자등록번호:612-13-56103 <br>
+            대표전화:031-1234-5678 / FAX: 031-1234-5678 <br>
+            주소: 경기도 부천시 경인옛로 3(소사메디파크) 303,304호 E-mail:thenear2875@naver.com<br>
+            Copyright(C)서울더가까이치과의원 All Right Reserved
+        </p>
+    </div>
+</div>
+
+
+
+
+    <script>
+        /*
+        let announcement =  [];
+
+        async function init(){
+            const saveDate = localStorage.getItem("announcement");
+
+            if(saveDate){
+                announcement = JSON.parse(saveDate);
+                renders();
+            }
+            else{
+                try{
+                    const response = await fetch('js/announcement.json');
+                    const jsonData = await response.json();
+
+                    announcement = jsonData.map(function(it,index){
+                        return{
+                            id: Date.now() + index,
+                            today: it.today,
+                            inname: it.inname,
+                            injl: it.injl,
+                            intext: it.intext, 
+                        };
+                    });
+
+                    localStorage.setItem("announcement", JSON.stringify(announcement));
+                    renders();
+                }
+                catch(error){
+                    alert("데이터를 불러오는 데 실패했습니다! VS Code의 'Live Server'로 실행했는지 확인해주세요!");
+                }
+            }
+        }
+        */
+
+
+        let announcement = JSON.parse(localStorage.getItem("announcement")) || [];
+
+        function renders() {
+            const listele = document.getElementById("list");
+            const inputsc = document.getElementById("inputsc").value.toLowerCase();
+
+            listele.innerHTML = "";
+
+            const filtered = announcement.filter(function (pr) {
+                return pr.inname.toLowerCase().includes(inputsc) ||
+                    pr.injl.toLowerCase().includes(inputsc) ||
+                    pr.today.toLowerCase().includes(inputsc) ||
+                    pr.intext.toLowerCase().includes(inputsc);
+            });
+
+            //filtered.reverse() 해서 날자 순서 반대로
+            //num =  filtered.length - index // 총 길이 - 인덱스 번호 만큼
+            filtered.reverse().forEach(function (pr, index) {
+                const li = document.createElement("li");
+                //const num = index + 1
+                const num =  filtered.length - index
+                li.innerHTML = `
+                    <div id="listtop">
+                    <p><b>NO:</b> ${num}</p>
+                    <p><b>작성자:</b> ${pr.inname}</p>
+                    <p><b>작성일:</b> ${pr.today}</p>
+                    <p><b>공지 종류:</b> ${pr.injl}</p>
+                    </div>
+                    <div id="listbot">
+                        <p id="inintext"><b>공지 내용:</b> ${pr.intext}</p>
+                    </div>
+
+                    
+                    <div class="btns">
+                        <button id="upbtnlogin"  class="upbtnlogin" onclick="upBtnlogin(${pr.id})">관리자수정</button>
+                        <button id="delbtnlogin"  class="delbtnlogin" onclick="delBtnlogin(${pr.id})">관리자삭제</button>
+                    </div>
+                `
+                listele.appendChild(li);
+            });
+            localStorage.setItem("announcement", JSON.stringify(announcement));
+        }
+
+        function addBtn() {
+            if (confirm("추가 하시겠습니까?")) {
+                const inname = document.getElementById("inname").value.trim();
+                const injl = document.getElementById("injl").value.trim();
+                const intext = document.getElementById("intext").value.trim();
+
+
+                let today = new Date();
+                let year = today.getFullYear(); // 년도
+                let month = today.getMonth() + 1;  // 월
+                let dates = today.getDate();  // 날짜
+                let day = today.getDay();  // 요일
+                let date = (year + '-' + month + '-' + dates)
+
+
+                announcement.push({
+                    id: Date.now(),
+                    today: date,
+                    inname: inname,
+                    injl: injl,
+                    intext: intext,
+                });
+                /*
+                            document.getElementById("inname").value = "";
+                            document.getElementById("indate").value = "";
+                            document.getElementById("injl").value = "";
+                            document.getElementById("inphone").value = "";
+                            document.getElementById("intext").value = "";
+                */
+                renders();
+                initApp();
+            }
+            renders();
+            initApp();
+        }
+
+
+
+        function upBtnlogin(id) {
+            const target = announcement.find(function (pr) {
+                return pr.id === id;
+            });
+            document.getElementById("updatewrap").classList.add("atv");
+            currentEditId = id;
+
+            document.getElementById("upinname").value = target.inname;
+            document.getElementById("upinjl").value = target.injl;
+            document.getElementById("upintext").value = target.intext;
+
+            renders();
+            initApp();
+        }
+        function upaddBtn() {
+            document.getElementById("updatewrap").classList.remove("atv");
+
+            const newupinname = document.getElementById("upinname").value;
+            const newupinjl = document.getElementById("upinjl").value;
+            const newupintext = document.getElementById("upintext").value;
+
+            announcement = announcement.map(function (emp) {
+                return emp.id === currentEditId ? { ...emp, inname: newupinname, injl: newupinjl, intext: newupintext } : emp;
+            });
+
+            renders();
+            initApp();
+        }
+
+
+        function noaddBtn() {
+            document.getElementById("updatewrap").classList.remove("atv");
+            currentEditId = null;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        function delBtnlogin(id) {
+            const target = announcement.find(function (pr) {
+                return pr.id === id;
+            });
+
+            if (confirm("정말 이 내용을 삭제 처리하시겠습니까?")) {
+                announcement = announcement.filter(function (pr) {
+                    return pr.id !== id;
+                });
+            };
+
+            renders();
+            initApp();
+        }
+        
+        init();
+
+    </script>
+
+
+
+
+</body>
+
+</html>

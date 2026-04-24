@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의료진 소개</title>
+    <link rel="stylesheet" href="css/0415menucss.css">
+
+</head>
+<style>
+    @font-face {
+        font-family: 'SeoulNamsan';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: 'SeoulNamsan', sans-serif;
+    }
+
+    .int_container {
+        display: flex;
+        position: relative;
+        display: inline-block;
+    }
+
+
+    .position span {
+        box-sizing: border-box;
+
+    }
+
+    .doctor-list {
+        width: 1975px;
+        height: 600px;
+
+    }
+
+    .position p {
+        display: inline-block;
+        background-color: #2F6793;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 10px;
+
+    }
+
+
+    .doctor-card {
+        position: relative;
+        width: 1000px;
+        background: #fff;
+        border-radius: 25px;
+
+        z-index: 5;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+
+        display: flex;
+        align-items: center;
+        margin-left: 450px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+    }
+
+    .doctor-card span {
+        font-size: 30px;
+        color: #2F6793;
+    }
+
+    .int_doctor {
+        padding-left: 100px;
+        margin-top: 15px;
+    }
+
+    .int_doctor li {
+        position: relative;
+        padding-left: 15px;
+        line-height: 1.8;
+        color: #454545;
+        font-size: 20px;
+    }
+
+    .int_doctor li::before {
+        position: absolute;
+    }
+
+
+
+
+
+
+
+
+
+    .inquiry {
+
+        padding: 50px;
+        flex: 1;
+    }
+
+    .inquiry span {
+        font-size: 25px;
+        color: #20559A;
+    }
+
+    .inquiry h1 {
+        font-size: 45px;
+        color: #20559A;
+        margin: 20px 0;
+    }
+
+    .time {
+        flex: 1;
+    }
+
+    .time h3 {
+        font-size: 25px;
+        color: #20559A;
+        padding-top: 20px;
+    }
+
+    .time p {
+        font-size: 22px;
+        color: #454545;
+        margin-top: 10px;
+    }
+
+
+
+    .map {
+        background-color: #eff5fd;
+        color: #454545;
+        padding: 20px;
+        flex: 1.2;
+    }
+
+    .map p {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+
+    .map h3 {
+        font-size: 25px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    #inf {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 80px 10%;
+        gap: 50px;
+        background-color: #eff5fd;
+
+    }
+
+
+    .footer {
+        width: 100%;
+        height: 200px;
+        background-color: #454545;
+        color: #D9D9D9;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .footer p {
+        margin-top: 20px;
+    }
+
+
+
+
+
+    .subimg {
+        z-index: 5;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(70*4px + 20px);
+        margin-top: 80px;
+        background-position: center;
+        background-size: cover;
+        background-image: url(imgs/subVisual-1.jpg);
+        color: white;
+    }
+
+    #subimg.no {
+        display: none;
+    }
+</style>
+
+<body>
+    
+    <div class="menuwrap">
+        <script src="js/0415menujs.js"></script>
+        <script>            
+            window.addEventListener("load", function () {
+                let navList = document.querySelector(".nav>ul");
+                navList.addEventListener("mouseover", function () { navList.querySelectorAll(".submenu").forEach(function (sb) { sb.style.height = "calc(70*4px + 20px)"; }); document.querySelector(".nav>ul").classList.add("on"); });
+                navList.addEventListener("mouseout", function () { navList.querySelectorAll(".submenu").forEach(function (sb) { sb.style.height = "0px"; }); document.querySelector(".nav>ul").classList.remove("on"); });
+            });        
+        </script>
+        <div class="menu">
+            <nav class="nav">
+                <ul>
+                    <li> <a href="index.html">
+                            <div class="logo"><span>서울더가까이</span>치과</div>
+                        </a> </li>
+                    <li> <a href="introduce.html">병원소개</a>
+                        <ul class="submenu">
+                            <li><a href="introduce.html">인삿말 및 병원 소개</a></li>
+                            <li><a href="map.html">오시는길 및 진료시간</a></li>
+                            <li><a href="doctor.html">의사 선생님 소개</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="03crgj.html">교정 클리닉</a>
+                        <ul class="submenu">
+                            <li><a href="03crgj.html">교정 소개</a></li>
+
+                        </ul>
+                    </li>
+                    <li> <a href="implant.html">임플란트 클리닉</a>
+                        <ul class="submenu">
+                            <li><a href="implant.html">임플란트 소개</a></li>
+                            <li><a href="implantjls.html">임플란트 종류</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="03reservation.html">커뮤니티</a>
+                        <ul class="submenu">
+                            <li><a href="03reservation.html">상담/예약</a></li>
+                            <li><a href="03notice.html">공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="logintext" id="logintext"><p>환영합니다</p></div>
+                        <div id="login" onclick="longBtn()"><p>로그인</p></div> 
+                        <button id="logout" onclick="logoutBtn()">로그아웃</button>
+                        <button id="out" onclick="outBtn()">닫기</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="loginbox" id="loginbox">
+            <div id="loginvv" class="loginwrap">
+                <div class="loginlogo"><span>서울더가까이</span>치과</div>
+                <div class="loginin">
+                    <h2>로그인하기</h2>
+                    <label for="inputid">아이디</label> <input type="text" id="inputid" placeholder="아이디 입력해주세요.">
+                    <label for="inputpw">비밀번호</label> <input type="password" id="inputpw" placeholder="아이디 입력해주세요.">
+                    <button id="loginbtn" onclick="loginBtn()">관리자 로그인하기</button>
+                    <div class="logininbox"> <span id="haonebtn" onclick="switchview('createvv')">회원가입</span> <span
+                            id="haonefindebtn" onclick="switchview('findevv')">비밀번호 찾기</span> </div>
+                </div>
+            </div>
+            <div id="createvv" class="loginwrap ">
+                <div class="loginlogo"><span>서울더가까이</span>치과</div>
+                <div class="loginin">
+                    <h2>관리자 추가하기</h2>
+                    <label for="inputidnew">신규 아이디</label> <input type="text" id="inputidnew" placeholder="아이디 입력해주세요.">
+                    <label for="inputpwnew">신규 비밀번호</label> <input type="password" id="inputpwnew"
+                        placeholder="아이디 입력해주세요.">
+                    <label for="inputpwck">비밀번호 재확인</label> <input type="password" id="inputpwck"
+                        placeholder="아이디 입력해주세요.">
+                    <button id="cerbtn" onclick="cerBtn()">관리자 추가하기</button>
+                    <div class="logininbox"> <span id="haonebtn" onclick="switchview('loginvv')">로그인</span> <span
+                            id="haonefindebtn" onclick="switchview('findevv')">비밀번호 찾기</span> </div>
+                </div>
+            </div>
+            <div id="findevv" class="loginwrap ">
+                <div class="loginlogo"><span>서울더가까이</span>치과</div>
+                <div class="loginin">
+                    <h2>비밀번호 찾기</h2>
+                    <label for="inputidfinde">아이디</label> <input type="text" id="inputidfinde" placeholder="아이디 입력해주세요.">
+                    <h3>관리자님의 비밀번호는</h3>
+                    <p id="fdpw"></p>
+                    <button id="findebtn" onclick="findeBtn()">관리자 비밀번호 찾기</button>
+                    <div class="logininbox"> <span id="haonebtn" onclick="switchview('loginvv')">로그인</span> <span
+                            id="haonefindebtn"onclick="switchview('createvv')">회원가입</span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="subimg" id="subimg">
+        <h1>의사 선생님 소개</h1>
+    </div>
+
+
+    <div class="wrap" id="wrap">
+
+
+        <div class="doctor-list">
+
+            <div class="doctor-card">
+                <img src="imgs/doctor1.JPG" width="400px">
+                <div class="doctor-info">
+                    <span class="position">
+                        <h4>원장 손용하</h4>
+                        <p>보철과</p>
+                    </span>
+                    <ul class="int_doctor">
+                        <li>- 치과 보철과 전문의</li>
+                        <li>- 연세대학교 치과대학 및 대학원 졸업</li>
+                        <li>- 연세대학교 치과대학원 보철과 박사수료</li>
+                        <li>- 연세대학교 치과대학병원 인턴, 보철과 레지던트</li>
+                        <li>- 연세대학교 치과대학 보철과 임상연구조교수</li>
+                        <li>- 연세대학교 치과대학 외래교수</li>
+                        <li>- 대한치과보철학회 정회원</li>
+                        <li>- 대한구강악안면임플란트학회 정회원</li>
+                        <li>- 대한치과이식임플란트학회 정회원</li>
+                        <li>- 대한심미치과학회 정회원</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="doctor-card">
+            <img src="imgs/doctor2.JPG" width="400px">
+            <div class="doctor-info">
+                <span class="position">
+                    <h4>원장 허은진</h4>
+                    <p>통합치의학과</p>
+                </span>
+
+
+                <ul class="int_doctor">
+                    <li>- 통합치의학과 전문의</li>
+                    <li>- 한국과학기술원(KAIST)학사/석사</li>
+                    <li>- 경희대학교 치의학대학원 졸업</li>
+                    <li>- 경희대학교 치의학 석사</li>
+                    <li>- 경희대학교 치과병원 인턴 수료</li>
+                    <li>- 대한구강안면임플란트학회 정회원</li>
+                    <li>- 대한심미치과학회 정회원</li>
+                    <li>- 대한소아치과학회 정회원</li>
+                    <li>- 오스템 AIC Implant master course 수료</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="footwrap">
+        <div class="content" id="inf">
+            <div class="inquiry">
+                <h3><span>상담문의</span></h3>
+                <h1>031-1234-5678</h1>
+
+                <div class="time">
+                    <h3>진료시간</h3>
+                    <p>평일 <b>AM10:00 - PM07:00</b></p>
+                    <p>토요일 <b>AM 09:00 - PM 01:00</b></p>
+                    <p>점심시간 <b>PM 01:00 - PM 02:00</b></p>
+                </div>
+            </div>
+
+
+            <div class="map">
+                <h3>오시는 길</h3>
+                <p>경기도 부천시 경인옛로 3(소사메디파크) 303,304호</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.098474395677!2d126.7931033!3d37.48200250000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b62da0c8f5ad3%3A0xdee531e1cd315eb2!2z7ISc7Jq4642U6rCA6rmM7J207LmY6rO87J2Y7JuQ!5e0!3m2!1sko!2skr!4v1776255643729!5m2!1sko!2skr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>상호:서울더가까이치과의원 대표자:김득한 사업자등록번호:612-13-56103 <br>
+                대표전화:031-1234-5678 / FAX: 031-1234-5678 <br>
+                주소: 경기도 부천시 경인옛로 3(소사메디파크) 303,304호 E-mail:thenear2875@naver.com<br>
+                Copyright(C)서울더가까이치과의원 All Right Reserved
+            </p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

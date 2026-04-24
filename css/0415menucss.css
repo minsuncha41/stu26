@@ -1,0 +1,309 @@
+        @font-face {
+            font-family: 'namsan';
+            src: url('ttf/SeoulNamsanM.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'namsan', sans-serif;
+            font-weight: normal;
+        }
+
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .scr{
+            width: 100vw;
+            height: 100vh;
+            background-image: url(mainVisual-1.jpg);
+            background-position: center;
+        }
+
+        li{
+            list-style: none;
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        .menu{
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav{
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+        .nav>ul{
+            width: 100%;
+            transition: 1s;
+            box-sizing: border-box;
+            background-color: #D9D9D9;
+            padding: 0px 10%;
+            display: flex;
+        }
+        .nav>ul::after{
+                content: "";
+                width: 100%;
+                height: 0px;
+                background-color: #454545;
+                opacity: 0.9;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                z-index: 1;
+                transition: all 0.4s;
+        }
+        .nav>ul.on::after{
+            height: calc(70*4px + 20px );
+        }
+
+        /*서브배경 높이*/
+        /*서브배경 높여서 위아래 간격맞출려고 높이 20추가*/
+
+        .nav>ul>li{
+            width: calc(100% /6);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .nav>ul>li:hover{
+            color: #2F6793;
+        }
+        
+        .nav>ul>li>a, #login, #logintext{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            padding: 0px 20px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        /*메뉴 높이*/
+
+        #login{
+            cursor: pointer;
+        }
+        #login:hover{
+            text-shadow: 0 0 2px black;
+        }
+        .submenu{
+            position: absolute;
+            width: 100%;
+            padding-top: 10px;
+            z-index: 10;
+            overflow: hidden;
+            height: 0px;
+            box-sizing: border-box;
+            transition: 0.4s;
+        }
+        /*ul서브메뉴크기로 오퍼히든으로 숨김*/
+
+        .submenu>li{
+            height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            color: #8398B5;
+            padding: 0px  20px;
+            font-size: 20px;
+        }
+        /*서브 높이*/
+        .submenu>li:hover{
+            color: white;
+        }
+
+
+
+        .loginbox{
+            z-index: 50;
+            box-sizing: border-box;
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: #8398b580;
+        }
+
+        .loginbox.atv{
+            display: flex;
+        }
+
+
+        .logo>span{
+            font-weight: bold;
+            color: #2B6299;
+            font-size: 35px;
+        }
+        .logo{
+            padding: 10px;
+            font-size: 25px;
+        }
+        #login>p{
+            border-radius: 50px;
+            padding: 10px 15px;
+            background-color: #2b629952;
+            font-size: 20px;
+        }
+        #out{
+            display: none;
+            cursor: pointer;
+            background-color: #2b62999f;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            right: 55px;
+            transform: translate(70%, 80%);
+        }
+        #out.atv{
+            display: block;
+        }
+
+        #out:hover{
+            background-color: #2B6299;
+        }
+
+
+
+
+
+
+
+        .loginwrap{
+            z-index: 50;
+            display: none;
+        }
+        .loginwrap.atv{
+            display: block;
+        }
+
+        .loginlogo{
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 35px;
+        }
+        .loginlogo>span{
+            text-shadow: 0 0 2px black;
+            font-size: 45px;
+            font-weight: bold;
+            color: #2B6299;
+        }
+
+        .loginin{
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 10px;
+            padding:30px  50px;
+            box-sizing: border-box;
+            background-color: white;
+            text-align: center;
+        }           
+        .loginin>h2{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .loginin>label{
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .loginin>input{
+            height: 35px;
+            padding: 0 10px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            margin-bottom: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .loginin>button{
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: #2b6299b2;
+        }
+        .loginin>button:hover{
+            background-color: #2B6299;
+        }
+        .logininbox{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #haonebtn, #haonefindebtn{
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #haonebtn:hover, #haonefindebtn:hover{
+            color: #2B6299;
+        }
+
+        .loginwrap>h3{
+            margin-bottom: 20px;
+        }
+
+        #logout{
+            display: none;
+            cursor: pointer;
+            background-color: #2b62999f;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 10px;
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(70%, 80%);
+        }
+        #logout.atv{
+            display: block;
+        }
+
+        #logout:hover{
+            background-color: #2B6299;
+        }
+        #logintext{
+            cursor: default;
+            display: none;
+        }
+
+        #wrap{
+            display: block;
+        }
+        #wrap.no{
+            display: none;
+        }
+
+
+        #footwrap{
+            display: block;
+        }
+        #footwrap.no{
+            display: none;
+        }
