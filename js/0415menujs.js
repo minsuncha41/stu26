@@ -119,11 +119,12 @@ function loginBtn() {
     }
     else {
         alert("아이디 비밀번호가 틀리거나 없습니다");
+        document.getElementById("inputid").value =""
+        document.getElementById("inputpw").value =""
     }
 
 
-    document.getElementById("inputid").value =""
-    document.getElementById("inputpw").value =""
+
 
 }
 
