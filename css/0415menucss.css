@@ -169,7 +169,7 @@
             font-weight: bold;
             position: absolute;
             top: 0;
-            right: 80px;
+            right: 5%;
             transform: translate(70%, 80%);
         }
         #out.atv{
